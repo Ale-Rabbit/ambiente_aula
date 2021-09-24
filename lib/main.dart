@@ -105,6 +105,17 @@ class _HomeState extends State<Home> {
         ));
   }
 
+  _profile() {
+    return InkWell(
+      child: Container(
+        margin: EdgeInsets.all(20),
+        padding: EdgeInsets.all(10),
+        child: Icon(MdiIcons.menu, color: Colors.black),
+      ),
+      onTap: () {},
+    );
+  }
+
   _title() {
     return Container(
       margin: EdgeInsets.only(left: 15, bottom: 5, top: 15),
@@ -116,26 +127,22 @@ class _HomeState extends State<Home> {
 
   _semestre() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: EdgeInsets.only(left: 15),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _semestreText(),
-          /*_easynvestInfo(),
-          _easynvestButton(),*/
-        ],
+        children: [_semestreText(), _semestreButton()],
       ),
     );
   }
 
   _semestreText() {
     return Container(
-      // margin: EdgeInsets.symmetric(vertical: 20),
+      margin: EdgeInsets.symmetric(vertical: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Período',
+            'Período: ',
             style: TextStyle(
                 fontSize: 12,
                 color: Color.fromRGBO(66, 66, 66, 1),
@@ -146,14 +153,32 @@ class _HomeState extends State<Home> {
     );
   }
 
-  _profile() {
-    return InkWell(
-      child: Container(
-        margin: EdgeInsets.all(20),
-        padding: EdgeInsets.all(10),
-        child: Icon(MdiIcons.menu, color: Colors.black),
+  _semestreButton() {
+    return Container(
+      margin: EdgeInsets.all(5),
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(
+            color: Colors.grey,
+            width: .5,
+          )),
+      child: FlatButton(
+        color: Colors.white,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              '2021/2',
+              style: TextStyle(color: Color.fromRGBO(66, 66, 66, 1)),
+            ),
+            Icon(MdiIcons.chevronDown, color: Colors.grey),
+          ],
+        ),
+        shape: StadiumBorder(),
+        onPressed: () {},
       ),
-      onTap: () {},
     );
   }
 
