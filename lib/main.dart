@@ -69,9 +69,9 @@ class _HomeState extends State<Home> {
               _header(),
               _title(),
               _semestre(),
-              _turma1()
-              /*_turma1(),
-              _bottom()*/
+              _turma1(),
+              _turma2()
+              /*,_bottom()*/
             ],
           ),
         ),
@@ -217,6 +217,24 @@ class _HomeState extends State<Home> {
     );
   }
 
+  _turma2() {
+    return Container(
+      margin: EdgeInsets.all(20),
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+          color: greenColor, borderRadius: BorderRadius.circular(5)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _titulo_turma2(),
+          _descricao_turma2(),
+          // TODO: fazer círculo de % Icon(MdiIcons.creditCard),
+          _cabecalho_turma()
+        ],
+      ),
+    );
+  }
+
   _botao_entrar_sala() {
     return new Center(
       child: new Container(
@@ -233,6 +251,20 @@ class _HomeState extends State<Home> {
             onPressed: () {},
           )),
     );
+  }
+
+  _titulo_turma2() {
+    return Container(
+        padding: EdgeInsets.only(left: 20, top: 20),
+        child: Text('Fundamentos de Inteligência Artificial',
+            style: TextStyle(color: Colors.white, fontFamily: 'Open Sans')));
+  }
+
+  _descricao_turma2() {
+    return Container(
+        padding: EdgeInsets.only(left: 20, top: 10, bottom: 25),
+        child: Text('Turma: 0388-A - 41N/42N - Graduação',
+            style: TextStyle(color: Colors.white, fontSize: 10)));
   }
 
   _setStatusbarColor() {
