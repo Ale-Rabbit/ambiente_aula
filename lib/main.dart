@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
 Color backgroundColor = Color.fromRGBO(236, 236, 236, 1);
 Color blueColor = Color.fromRGBO(68, 177, 204, 1);
 Color greenColor = Color.fromRGBO(5, 54, 30, 1);
+Color greenButton = Color.fromRGBO(20, 134, 46, 1);
 Color textDark = Color.fromRGBO(52, 58, 64, 1);
 
 class Home extends StatefulWidget {
@@ -68,20 +69,9 @@ class _HomeState extends State<Home> {
               _header(),
               _title(),
               _semestre(),
-              /*_account(),
-              _actions(),
-              _myCards(),
-              _info(),
-              _divider(),
-              _credictCard(),
-              _divider(),
-              _loanArea(),
-              _divider(),
-              _easynvest(),
-              _divider(),
-              _lifeInsurance(),
-              _divider(),
-              _discover()*/
+              _turma1()
+              /*_turma1(),
+              _bottom()*/
             ],
           ),
         ),
@@ -92,6 +82,7 @@ class _HomeState extends State<Home> {
   _header() {
     return Container(
         color: Colors.white,
+        //height: MediaQuery.of(context).size.width, TODO: DEIXAR MENOR
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -162,7 +153,6 @@ class _HomeState extends State<Home> {
           borderRadius: BorderRadius.circular(5),
           border: Border.all(
             color: Colors.grey,
-            width: .5,
           )),
       child: FlatButton(
         color: Colors.white,
@@ -179,6 +169,69 @@ class _HomeState extends State<Home> {
         shape: StadiumBorder(),
         onPressed: () {},
       ),
+    );
+  }
+
+  _turma1() {
+    return Container(
+      margin: EdgeInsets.all(20),
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+          color: blueColor, borderRadius: BorderRadius.circular(5)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _titulo_turma1(),
+          _descricao_turma1(),
+          // TODO: fazer círculo de % Icon(MdiIcons.creditCard),
+          _cabecalho_turma()
+        ],
+      ),
+    );
+  }
+
+  _titulo_turma1() {
+    return Container(
+        padding: EdgeInsets.only(left: 20, top: 20),
+        child: Text('Desenvolvimento de Sistemas Móveis',
+            style: TextStyle(color: Colors.white, fontFamily: 'Open Sans')));
+  }
+
+  _descricao_turma1() {
+    return Container(
+        padding: EdgeInsets.only(left: 20, top: 10, bottom: 25),
+        child: Text(' Turma: 0658-A - 51N - Graduação',
+            style: TextStyle(color: Colors.white, fontSize: 10)));
+  }
+
+  _cabecalho_turma() {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [/*(_icones(),*/ _botao_entrar_sala()],
+      ),
+    );
+  }
+
+  _botao_entrar_sala() {
+    return new Center(
+      child: new Container(
+          margin: EdgeInsets.all(20),
+          width: MediaQuery.of(context).size.width,
+          child: FlatButton(
+            color: greenButton,
+            padding: EdgeInsets.all(20),
+            child: Text(
+              'Entrar na sala',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white),
+            ),
+            onPressed: () {},
+          )),
     );
   }
 
